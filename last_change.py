@@ -16,9 +16,9 @@ overlay_image = cv2.imread('overlay.png', cv2.IMREAD_UNCHANGED)  # Load with alp
 
 # Load the success images (to display based on conditions)
 success_images = {
-    'both': cv2.imread('100.png', cv2.IMREAD_UNCHANGED),
-    'either': cv2.imread('50.png', cv2.IMREAD_UNCHANGED),
-    'none': cv2.imread('0.png', cv2.IMREAD_UNCHANGED)
+    'both': cv2.imread('assets/100.png', cv2.IMREAD_UNCHANGED),
+    'either': cv2.imread('assets/50.png', cv2.IMREAD_UNCHANGED),
+    'none': cv2.imread('assets/0.png', cv2.IMREAD_UNCHANGED)
 }
 
 # Check if the images were loaded successfully

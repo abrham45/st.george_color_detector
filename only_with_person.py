@@ -7,16 +7,21 @@ import time
 net = cv2.dnn.readNetFromCaffe('deploy.prototxt', 'mobilenet_iter_73000.caffemodel')
 
 cap = cv2.VideoCapture(0)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)  # Set to desired width
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)  # Set to desired height
 
 if not cap.isOpened():
     print("Error: Could not open video capture.")
 
 overlay_image = cv2.imread('overlay.png', cv2.IMREAD_UNCHANGED)  # Load with alpha channel
 
+# cv2.namedWindow('frame', cv2.WND_PROP_FULLSCREEN)
+# cv2.setWindowProperty('frame', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+
 success_images = {
-    'both': cv2.imread('100.png', cv2.IMREAD_UNCHANGED),
-    'either': cv2.imread('50.png', cv2.IMREAD_UNCHANGED),
-    'none': cv2.imread('0.png', cv2.IMREAD_UNCHANGED)
+    'both': cv2.imread('assets/100.png', cv2.IMREAD_UNCHANGED),
+    'either': cv2.imread('assets/50.png', cv2.IMREAD_UNCHANGED),
+    'none': cv2.imread('assets/0.png', cv2.IMREAD_UNCHANGED)
 }
 
 if overlay_image is None or any(img is None for img in success_images.values()):
