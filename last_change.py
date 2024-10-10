@@ -1,18 +1,18 @@
 import cv2
 import numpy as np
 from PIL import Image
-from utils_two import get_limits
+from utils import get_limits
 import time  # For timestamps
 
 # Load the pre-trained MobileNet SSD model for person detection
-net = cv2.dnn.readNetFromCaffe('deploy.prototxt', 'mobilenet_iter_73000.caffemodel')
+net = cv2.dnn.readNetFromCaffe('models/deploy.prototxt', 'models/mobilenet_iter_73000.caffemodel')
 
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
     print("Error: Could not open video capture.")
 
-overlay_image = cv2.imread('overlay.png', cv2.IMREAD_UNCHANGED)  # Load with alpha channel
+overlay_image = cv2.imread('assets/overlay.png', cv2.IMREAD_UNCHANGED)  # Load with alpha channel
 
 # Load the success images (to display based on conditions)
 success_images = {

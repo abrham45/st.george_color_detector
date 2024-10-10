@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 from PIL import Image
-from util import get_limits
+from config import get_limits
 
 yellow = [0, 0, 255]  # Yellow in BGR colorspace
 cap = cv2.VideoCapture(0)
